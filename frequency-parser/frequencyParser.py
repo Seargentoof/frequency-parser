@@ -17,7 +17,7 @@ Precondition: xlsx file must be a file consisting of frequency expressions
 """
 def load_xlsx_file_to_dictionary(filepath = 'information/frequencies.xlsx', 
 	column1 = 'frequency', column2 = 'hour equivalent') -> dict:
-	pass
+
 	# load the file into a variable df
 	df = pd.read_excel(filepath)
 
