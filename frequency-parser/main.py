@@ -8,10 +8,13 @@ import frequencyParser as parser
 import utilities as util
 import time
 
-print('Check for correctness:', parser.frequencies_are_equal('tu/ w/f/sa/su', 'tu/ w/f/sa/su'))
-print('Check for correctness:', parser.frequencies_are_equal('q shift', 'q 12hr'))
-print('Check for correctness:', parser.frequencies_are_equal('Tu/W/f/Sa/Su', 'tu/w/f/sa/su'))
-print('Check for correctness:', parser.frequencies_are_equal('Q SHIFT', 'q 12 hr'))
+print('1. Check for correctness:', parser.frequencies_are_equal('tu/ w/f/sa/su', 'tu/ w/f/sa/su'))
+print('2. Check for correctness:', parser.frequencies_are_equal('q shift', 'q 12hr'))
+print('3. Check for correctness:', parser.frequencies_are_equal('Tu/W/f/Sa/Su', 'tu/w/f/sa/su'))
+print('4. Check for correctness:', parser.frequencies_are_equal('Q SHIFT', 'q 12 hr'))
+print('5. Check for correctness:', parser.frequencies_are_equal('***customizabledose interv***', '***mostused***'))
+
+
 
 def time_operation(data1Num, data2Num):
 	orders1 = util.read_file_lines("input/" + data1Num + ".data")

@@ -77,7 +77,7 @@ def frequencies_are_equal(frequency1: str, frequency2: str) -> bool:
 
 
 	#1. return whether the hour equivalent of frequency1 equals that of frequency2
-	#	(NOTE: remember to strip the frequency expressions of spaces and convert e
+	#	(NOTE: remember to strip the frequency expressions of spaces and convert
 	# 	everything to lower case)
 	#	(NOTE: beware of comparing floats for equality)
 	try: 
