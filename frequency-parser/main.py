@@ -11,8 +11,9 @@ import time
 print('1. Check for correctness:', parser.frequencies_are_equal('tu/ w/f/sa/su', 'tu/ w/f/sa/su'))
 print('2. Check for correctness:', parser.frequencies_are_equal('q shift', 'q 12hr'))
 print('3. Check for correctness:', parser.frequencies_are_equal('Tu/W/f/Sa/Su', 'tu/w/f/sa/su'))
-print('4. Check for correctness:', parser.frequencies_are_equal('Q SHIFT', 'q 12 hr'))
+print('4. Check for correctness:', parser.frequencies_are_equal('Q SHIFT', 'q 12 h'))
 print('5. Check for correctness:', parser.frequencies_are_equal('***customizabledose interv***', '***mostused***'))
+print('6. Check for correctness:', parser.frequencies_are_equal('ac -(3X)', 'ac-  (7,11,16)'))
 
 
 

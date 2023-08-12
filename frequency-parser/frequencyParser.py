@@ -17,6 +17,8 @@ Precondition: xlsx file must be a file consisting of frequency expressions
 """
 def load_xlsx_file_to_dictionary(filepath = 'information/frequencies.xlsx', 
 	column1 = 'frequency', column2 = 'hour equivalent') -> dict:
+	SPACE = " "
+
 
 	# load the file into a variable df
 	df = pd.read_excel(filepath)
@@ -28,7 +30,9 @@ def load_xlsx_file_to_dictionary(filepath = 'information/frequencies.xlsx',
 	#	add to result (key = element in the frequency column, value = corresponding
 	#	hour equivalent)
 	for index, row in df.iterrows():
-		result.update({row[column1]: row[column2]})
+		key = str(row[column1]).strip().lower().replace(SPACE, "")
+		value = float(row[column2])
+		result.update({key: value})
 	
 	
 	# sort result by key pairs in alphabetical order
@@ -36,43 +40,21 @@ def load_xlsx_file_to_dictionary(filepath = 'information/frequencies.xlsx',
 	sortedDict = {key: result[key] for key in sortedKeys}
 	result = sortedDict
 
-	# strip the dictionary of spaces and make everything lowercase
-	result = standardize(result)
-
 	# return result
 	return result
 
 
-"""
-Strips all of the keys in dictionary of spaces and makes everything lowercase
-Precondition: the key must be a frequency expression
-"""
-def standardize(dictionary: dict) -> dict:
-	SPACE = " " # constants
-
-	result = dict()
-
-	for frequency in dictionary.items():
-		key = frequency[0]
-		key = key.strip()
-		key = key.replace(SPACE, "")
-		key = key.lower()
-		value = frequency[1]
-		result[key] = value
-
-	return result
 
 # dictionary for frequencyParser
 frequencyDictionary = load_xlsx_file_to_dictionary()
-#print(frequencyDictionary)
+# print(frequencyDictionary)
 
 
 #### Implementation
 """
 Takes two string frequencies and determines whether they are equal.
 """
-def frequencies_are_equal(frequency1: str, frequency2: str) -> bool:
-	global frequencyDictionary #global vars
+def frequencies_are_equal(frequency1: str, frequency2: str, info = frequencyDictionary) -> bool:
 	SPACE = " " # Constants
 
 
@@ -81,8 +63,8 @@ def frequencies_are_equal(frequency1: str, frequency2: str) -> bool:
 	# 	everything to lower case)
 	#	(NOTE: beware of comparing floats for equality)
 	try: 
-		val1 = frequencyDictionary.get(frequency1.strip().replace(SPACE, "").lower()) 
-		val2 = frequencyDictionary.get(frequency2.strip().replace(SPACE, "").lower())
+		val1 = info.get(frequency1.strip().lower().replace(SPACE, "")) 
+		val2 = info.get(frequency2.strip().lower().replace(SPACE, ""))
 		if math.isclose(float(val1), float(val2)): return True
 		if val1 == val2: return True
 		if str(val1) == 'nan' and str(val2) == 'nan': return True #if the hour equivalent is NaN
