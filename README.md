@@ -9,7 +9,7 @@ This project was written in Python 3.
 ## How it works
 Frequency Parsers's frequencies_are_equal method compares two frequency expressions at a time. 
 
-The input frequency expressions are looked up in a previously created database (a Microsoft Excel spreadsheet). The 
+The input frequency expressions are looked up in a previously created data file (a Microsoft Excel spreadsheet). The 
 spreadsheet consists of two columns: one with frequency expressions (e.g. bid, q12hr) and the other with hour equivalents (e.g. 12).
 
 If the hour equivalents are equal, the expressions are determined to be equal. Otherwise, they are not. 
@@ -17,7 +17,7 @@ If the hour equivalents are equal, the expressions are determined to be equal. O
 ## How to use this program
 Use the frequencies_are_equal method to make comparisons for equality between medical frequency expressions. 
 
-The Excel database is meant to be user-friendly and easy to understand, edit, and expand. However, it needs to be as well-standardized as possible. To achieve this, please observe the following conventions:
+The Excel data file is meant to be user-friendly and easy to understand, edit, and expand. However, it needs to be as well-standardized as possible. To achieve this, please observe the following conventions:
 1. One hour equivalent per frequency expression. 
 2. Keep the letter case consistent within a frequency expression.
 3. Refrain from adding frequency expressions that are equal in a case-insensitive context to prevent duplicate rows.
